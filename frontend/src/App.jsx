@@ -1,13 +1,16 @@
-import React from 'react';
-import Landing from './pages/Landing'; // Path changed to pages
+import { Routes, Route } from "react-router-dom";
+
+import Landing from "./pages/Landing";
+import Login from "./pages/login";
+import Register from "./pages/Register";
 
 function App() {
   return (
-    <div className="App">
-      <Landing />
-    </div>
-
-    
+    <Routes>
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+    </Routes>
   );
 }
 
