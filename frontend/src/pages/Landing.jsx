@@ -1,83 +1,105 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-const Landing = () => {
+const LandingPage = () => {
   return (
-    <section className="min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 py-12">
-      <div className="max-w-6xl mx-auto w-full flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
+    <>
+      {/* ===== NAVBAR ===== */}
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100/60 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 md:h-20">
+            {/* Logo */}
+            <div className="flex items-center gap-2">
+              <img
+                src="/logo.png"
+                alt="BoardingFinder"
+                className="h-8 w-auto"
+              />
+              <span className="font-bold text-xl text-gray-800 tracking-tight">
+                Boarding<span className="text-indigo-600">Finder</span>
+              </span>
+            </div>
 
-        {/* Left Side - Content */}
-        <div className="flex-1 text-center lg:text-left">
-        <h1 className="bg-red-500 text-4xl ... ">perfect</h1>
+            {/* ✅ Sign In button - Correctly wrapped with Link */}
+            <Link to="/login">
+              <button className="px-5 py-2 text-sm font-semibold text-indigo-600 border border-indigo-200 rounded-full hover:bg-indigo-50 transition-colors">
+                Sign In
+              </button>
+            </Link>
+          </div>
+        </div>
+      </nav>
 
-          <p className="text-base sm:text-lg text-gray-600 max-w-lg mx-auto lg:mx-0 mb-8">
-            Connect with verified boarding house owners near top universities
-            across the Philippines.
+      {/* ===== HERO SECTION ===== */}
+      <main
+        className="pt-20 md:pt-24 min-h-screen flex items-center justify-center relative bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/background.jpg')" }}
+      >
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
+
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-lg">
+            Find the perfect
+            <span className="text-indigo-200 relative inline-block">
+              boarding house
+              <svg className="absolute -bottom-1 left-0 w-full h-2.5 text-indigo-300/50" viewBox="0 0 200 12" fill="currentColor">
+                <path d="M0 10 Q50 0 100 10 Q150 0 200 10 L200 12 L0 12 Z" />
+              </svg>
+            </span>
+            <br />
+            near your campus
+          </h1>
+
+          <p className="mt-5 text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow">
+            Connect with verified boarding house owners near top universities across the Philippines.
           </p>
 
-          {/* Stats Section */}
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10 mb-10">
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-gray-900">1,240+</p>
-              <p className="text-sm text-blue-500 font-medium">Listings</p>
+          {/* STATS ROW */}
+          <div className="mt-10 flex flex-wrap justify-center items-center gap-6 sm:gap-10">
+            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl font-bold">
+                1.2k+
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-gray-800">Listings</div>
+                <div className="text-xs text-gray-500">verified properties</div>
+              </div>
             </div>
-            <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-gray-900">48</p>
-              <p className="text-sm text-gray-500 font-medium">Universities</p>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-gray-300"></div>
-            <div>
-              <p className="text-3xl sm:text-4xl font-bold text-gray-900">8,400+</p>
-              <p className="text-sm text-gray-500 font-medium">Students</p>
-            </div>
-          </div>
 
-          {/* Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-indigo-700 hover:bg-indigo-800 text-white font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-200 transform hover:-translate-y-1">
-              Search Now
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-indigo-700 text-indigo-700 hover:bg-indigo-700 hover:text-white font-semibold rounded-full transition-all duration-200 transform hover:-translate-y-1">
-              List Your Property
-            </button>
-          </div>
-        </div>
-
-        {/* Right Side - Image / Illustration */}
-        <div className="flex-1 w-full max-w-md lg:max-w-full">
-          <div className="relative bg-gradient-to-br from-indigo-100 via-purple-50 to-pink-100 rounded-3xl p-8 aspect-square flex flex-col items-center justify-center shadow-2xl hover:shadow-3xl transition-shadow duration-300 border border-white/50">
-            {/* Decorative Background Dots */}
-            <div className="absolute top-4 right-4 w-20 h-20 bg-indigo-300/30 rounded-full blur-2xl"></div>
-            <div className="absolute bottom-4 left-4 w-24 h-24 bg-purple-300/30 rounded-full blur-2xl"></div>
-            
-            {/* Icon */}
-            <div className="relative z-10 bg-white/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg mb-4">
-              <svg
-                className="w-16 h-16 text-indigo-600"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                <polyline points="9 22 9 12 15 12 15 22" />
-              </svg>
+            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 text-xl font-bold">
+                48
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-gray-800">Universities</div>
+                <div className="text-xs text-gray-500">nationwide</div>
+              </div>
             </div>
-            
-            <p className="relative z-10 text-indigo-800 font-bold text-xl tracking-wider bg-white/60 backdrop-blur-sm px-6 py-2 rounded-full shadow-inner">
-              🏠 Boarding House
-            </p>
-            <p className="relative z-10 text-gray-500 text-sm mt-2 font-medium">
-              Safe & Verified
-            </p>
+
+            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
+              <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 text-xl font-bold">
+                8.4k+
+              </div>
+              <div className="text-left">
+                <div className="text-sm font-semibold text-gray-800">Students</div>
+                <div className="text-xs text-gray-500">happy renters</div>
+              </div>
+            </div>
           </div>
         </div>
+      </main>
 
-      </div>
-    </section>
+      <style jsx>{`
+        .stat-card {
+          transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .stat-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
+      `}</style>
+    </>
   );
 };
 
-export default Landing;
+export default LandingPage;
