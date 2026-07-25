@@ -4,85 +4,113 @@ import { Link } from 'react-router-dom';
 const LandingPage = () => {
   return (
     <>
-      {/* ===== NAVBAR ===== */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-100/60 shadow-sm">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 md:h-20">
-            {/* Logo */}
-            <div className="flex items-center gap-2">
-              <img
-                src="/logo.png"
-                alt="BoardingFinder"
-                className="h-8 w-auto"
-              />
-              <span className="font-bold text-xl text-gray-800 tracking-tight">
-                Boarding<span className="text-indigo-600">Finder</span>
+      <nav className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-slate-950/80 shadow-[0_8px_30px_rgba(2,6,23,0.35)] backdrop-blur-xl">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex h-16 items-center justify-between md:h-20">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-400 to-indigo-500 shadow-lg shadow-cyan-500/20">
+                <span className="text-sm font-black text-white">BF</span>
+              </div>
+              <span className="text-xl font-bold tracking-tight text-white">
+                Boarding<span className="text-cyan-300">Finder</span>
               </span>
             </div>
 
-            {/* ✅ Sign In button - Correctly wrapped with Link */}
-            <Link to="/login">
-              <button className="px-5 py-2 text-sm font-semibold text-indigo-600 border border-indigo-200 rounded-full hover:bg-indigo-50 transition-colors">
+            <div className="flex items-center gap-3">
+              <Link
+                to="/register"
+                className="hidden rounded-full border border-white/15 px-4 py-2 text-sm font-semibold text-slate-200 transition hover:border-cyan-300/40 hover:bg-white/10 sm:inline-flex"
+              >
+                Create Account
+              </Link>
+              <Link
+                to="/login"
+                className="rounded-full bg-cyan-400 px-5 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+              >
                 Sign In
-              </button>
-            </Link>
+              </Link>
+            </div>
           </div>
         </div>
       </nav>
 
-      {/* ===== HERO SECTION ===== */}
-      <main
-        className="pt-20 md:pt-24 min-h-screen flex items-center justify-center relative bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/background.jpg')" }}
-      >
-        <div className="absolute inset-0 bg-black/30 backdrop-blur-[1px]"></div>
+      <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-slate-950 pt-20 md:pt-24">
+        <div className="absolute inset-0">
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{
+              backgroundImage:
+                "linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.72) 45%, rgba(8, 47, 73, 0.8) 100%), url('/background.jpg')",
+            }}
+          />
+          <div className="absolute left-[-10%] top-[-10%] h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl" />
+          <div className="absolute bottom-[-8%] right-[-5%] h-80 w-80 rounded-full bg-indigo-500/20 blur-3xl" />
+        </div>
 
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center py-12">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-lg">
+        <div className="absolute inset-0 bg-slate-950/35 backdrop-blur-[2px]" />
+
+        <div className="relative z-10 mx-auto max-w-5xl px-4 py-12 text-center sm:px-6 lg:px-8">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-white/10 px-4 py-2 text-sm font-medium text-cyan-100 backdrop-blur-md">
+            <span className="h-2.5 w-2.5 rounded-full bg-cyan-300" />
+            A smarter way to find a place near campus
+          </div>
+
+          <h1 className="text-4xl font-extrabold leading-[1.1] tracking-tight text-white drop-shadow-lg sm:text-5xl lg:text-6xl">
             Find the perfect
-            <span className="text-indigo-200 relative inline-block">
+            <span className="mx-2 inline-block bg-gradient-to-r from-cyan-200 via-sky-100 to-indigo-200 bg-clip-text text-transparent">
               boarding house
-              <svg className="absolute -bottom-1 left-0 w-full h-2.5 text-indigo-300/50" viewBox="0 0 200 12" fill="currentColor">
-                <path d="M0 10 Q50 0 100 10 Q150 0 200 10 L200 12 L0 12 Z" />
-              </svg>
             </span>
             <br />
             near your campus
           </h1>
 
-          <p className="mt-5 text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed drop-shadow">
-            Connect with verified boarding house owners near top universities across the Philippines.
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-200/90 sm:text-xl">
+            Connect with verified boarding house owners and discover comfortable stays across the Philippines.
           </p>
 
-          {/* STATS ROW */}
-          <div className="mt-10 flex flex-wrap justify-center items-center gap-6 sm:gap-10">
-            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center text-indigo-600 text-xl font-bold">
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Link
+              to="/register"
+              className="rounded-full bg-gradient-to-r from-cyan-400 to-indigo-500 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:scale-[1.02]"
+            >
+              Get Started
+            </Link>
+            <Link
+              to="/login"
+              className="rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/20"
+            >
+              Explore Listings
+            </Link>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+            <div className="stat-card flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-5 py-3 shadow-[0_12px_40px_rgba(2,6,23,0.25)] backdrop-blur-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/15 text-xl font-bold text-cyan-300">
                 1.2k+
               </div>
               <div className="text-left">
-                <div className="text-sm font-semibold text-gray-800">Listings</div>
-                <div className="text-xs text-gray-500">verified properties</div>
+                <div className="text-sm font-semibold text-white">Listings</div>
+                <div className="text-xs text-slate-400">verified properties</div>
               </div>
             </div>
 
-            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 text-xl font-bold">
+            <div className="stat-card flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-5 py-3 shadow-[0_12px_40px_rgba(2,6,23,0.25)] backdrop-blur-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/15 text-xl font-bold text-emerald-300">
                 48
               </div>
               <div className="text-left">
-                <div className="text-sm font-semibold text-gray-800">Universities</div>
-                <div className="text-xs text-gray-500">nationwide</div>
+                <div className="text-sm font-semibold text-white">Universities</div>
+                <div className="text-xs text-slate-400">nationwide</div>
               </div>
             </div>
 
-            <div className="stat-card flex items-center gap-3 bg-white/70 backdrop-blur-sm px-6 py-3 rounded-2xl border border-gray-100/80 shadow-sm">
-              <div className="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 text-xl font-bold">
+            <div className="stat-card flex items-center gap-3 rounded-2xl border border-white/10 bg-slate-900/70 px-5 py-3 shadow-[0_12px_40px_rgba(2,6,23,0.25)] backdrop-blur-md">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-amber-500/15 text-xl font-bold text-amber-300">
                 8.4k+
               </div>
               <div className="text-left">
-                <div className="text-sm font-semibold text-gray-800">Students</div>
-                <div className="text-xs text-gray-500">happy renters</div>
+                <div className="text-sm font-semibold text-white">Students</div>
+                <div className="text-xs text-slate-400">happy renters</div>
               </div>
             </div>
           </div>
@@ -95,7 +123,7 @@ const LandingPage = () => {
         }
         .stat-card:hover {
           transform: translateY(-4px);
-          box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 18px 40px rgba(2, 6, 23, 0.35);
         }
       `}</style>
     </>
